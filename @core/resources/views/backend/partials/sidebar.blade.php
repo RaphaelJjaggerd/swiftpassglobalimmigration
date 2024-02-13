@@ -344,7 +344,7 @@
                 <span>{{ __('Counterup') }}</span></a>
             </li>
           @endif
-          @if (check_page_permission_by_string('Package Orders Manage'))
+          {{-- @if (check_page_permission_by_string('Package Orders Manage'))
             <li class="main_dropdown @if (request()->is(['admin-home/payment-logs/report', 'admin-home/payment-logs', 'admin-home/package/*'])) active @endif
                                         ">
               <a href="javascript:void(0)" aria-expanded="true"><i class="ti-cash"></i>
@@ -436,7 +436,7 @@
                 </li>
               </ul>
             </li>
-          @endif
+          @endif --}}
 
           {{-- <li class="main_dropdown
                     @if (request()->is(['admin-home/quote-manage/*', 'admin-home/package/*', 'admin-home/payment-logs', 'admin-home/payment-logs/report', 'admin-home/jobs', 'admin-home/jobs/*', 'admin-home/events', 'admin-home/events/*', 'admin-home/products', 'admin-home/products/*', 'admin-home/donations', 'admin-home/donations/*', 'admin-home/knowledge', 'admin-home/knowledge/*', 'admin-home/appointment/*', 'admin-home/support-tickets/*', 'admin-home/support-tickets'])) active @endif">
@@ -1699,12 +1699,11 @@
                     {{ __('Navbar Settings') }}
                   </a>
                 </li>
-                {{-- <li
-                                    class="main_dropdown {{ active_menu('admin-home/appearance-setting/home-variant') }}">
-                                    <a href="{{ route('admin.home.variant') }}" aria-expanded="true">
-                                        {{ __('Home Variant') }}
-                                    </a>
-                                </li> --}}
+                <li class="main_dropdown {{ active_menu('admin-home/appearance-setting/home-variant') }}">
+                  <a href="{{ route('admin.home.variant') }}" aria-expanded="true">
+                    {{ __('Home Variant') }}
+                  </a>
+                </li>
                 <li class="{{ active_menu('admin-home/appearance-setting/breadcrumb-settings') }}">
                   <a href="{{ route('admin.breadcrumb.settings') }}" aria-expanded="true">
                     {{ __('Breadcrumb Settings') }}

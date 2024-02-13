@@ -279,99 +279,7 @@
                 <span><?php echo e(__('Counterup')); ?></span></a>
             </li>
           <?php endif; ?>
-          <?php if(check_page_permission_by_string('Package Orders Manage')): ?>
-            <li class="main_dropdown <?php if(request()->is(['admin-home/payment-logs/report', 'admin-home/payment-logs', 'admin-home/package/*'])): ?> active <?php endif; ?>
-                                        ">
-              <a href="javascript:void(0)" aria-expanded="true"><i class="ti-cash"></i>
-                <?php echo e(__('Package Orders Manage')); ?></a>
-
-
-
-              <ul class="collapse">
-
-                <hr>
-
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/all')); ?>"><a href="<?php echo e(route('admin.package.order.manage.all')); ?>"><?php echo e(__('All Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/pending')); ?>"><a href="<?php echo e(route('admin.package.order.manage.pending')); ?>"><?php echo e(__('Pending Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/in-progress')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.in.progress')); ?>"><?php echo e(__('In Progress Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/application')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.application')); ?>"><?php echo e(__('Application Stage Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/approved')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.approved')); ?>"><?php echo e(__('Approved Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/denied')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.denied')); ?>"><?php echo e(__('Denied Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/documentation-and-review')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.documentation.and.review')); ?>"><?php echo e(__('Documentation And Review')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/interviews-and-simulation')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.interview.and.simulation')); ?>"><?php echo e(__('Interviews And Simulation')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/review-and-submission')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.manage.review.and.submission')); ?>"><?php echo e(__('Review And Submission')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/completed')); ?>"><a href="<?php echo e(route('admin.package.order.manage.completed')); ?>"><?php echo e(__('Completed Order')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/success-page')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.success.page')); ?>"><?php echo e(__('Success Order Page')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/cancel-page')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.cancel.page')); ?>"><?php echo e(__('Cancel Order Page')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-page')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.page')); ?>"><?php echo e(__('Order Page Manage')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-report')); ?>">
-                  <a href="<?php echo e(route('admin.package.order.report')); ?>"><?php echo e(__('Order Report')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/payment-logs')); ?>"><a href="<?php echo e(route('admin.payment.logs')); ?>"><?php echo e(__('All Payment Logs')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/payment-logs/report')); ?>"><a href="<?php echo e(route('admin.payment.report')); ?>"><?php echo e(__('Payment Report')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/package/order-manage/settings')); ?>"><a href="<?php echo e(route('admin.package.settings')); ?>"><?php echo e(__('Settings')); ?></a>
-                </li>
-              </ul>
-            </li>
-          <?php endif; ?>
-
-          <?php if(check_page_permission_by_string('Appointment Manage') && !empty(get_static_option('appointment_module_status'))): ?>
-            <li class="main_dropdown <?php if(request()->is('admin-home/appointment/*')): ?> active <?php endif; ?> ">
-              <a href="javascript:void(0)" aria-expanded="true">
-                <?php echo e(__('Appointment Manage')); ?> </a>
-              <ul class="collapse">
-                <li class="<?php echo e(active_menu('admin-home/appointment/all')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.all')); ?>"><?php echo e(__('All appointment')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/new')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.new')); ?>"><?php echo e(__('New Appointment')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/category')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.category.all')); ?>"><?php echo e(__('Category')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/booking-time')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.booking.time.all')); ?>"><?php echo e(__('Booking Time')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/booking')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.booking.all')); ?>"><?php echo e(__('All Appointment Booking')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/review')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.review.all')); ?>"><?php echo e(__('All Reviews')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/form-builder')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.booking.form.builder')); ?>"><?php echo e(__('Booking Form Builder')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/appointment/settings')); ?>">
-                  <a href="<?php echo e(route('admin.appointment.booking.settings')); ?>"><?php echo e(__('Settings')); ?></a>
-                </li>
-              </ul>
-            </li>
-          <?php endif; ?>
+          
 
           
           <li class="main_dropdown
@@ -1465,7 +1373,12 @@
 
                   </a>
                 </li>
-                
+                <li class="main_dropdown <?php echo e(active_menu('admin-home/appearance-setting/home-variant')); ?>">
+                  <a href="<?php echo e(route('admin.home.variant')); ?>" aria-expanded="true">
+                    <?php echo e(__('Home Variant')); ?>
+
+                  </a>
+                </li>
                 <li class="<?php echo e(active_menu('admin-home/appearance-setting/breadcrumb-settings')); ?>">
                   <a href="<?php echo e(route('admin.breadcrumb.settings')); ?>" aria-expanded="true">
                     <?php echo e(__('Breadcrumb Settings')); ?>
