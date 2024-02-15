@@ -43,14 +43,14 @@
             <div class="footer-widget-department">
               <h4 class="footer-widget-title">Services</h4>
               <ul class="list-unstyled">
-                @foreach ($all_service->chunk(3)->take(2)->last() as $key => $data)
+                {{-- @foreach ($all_service->chunk(3)->take(2)->last() as $key => $data)
                   <li>
                     <a href="{{ route('frontend.services.single', $data->slug) }}">{{ $data->title }}</a>
                   </li>
-                @endforeach
-                {{-- <li><a href="/service/work-visa">Work Visas </a></li>
+                @endforeach --}}
+                <li><a href="/service/work-visa">Work Visas </a></li>
                 <li><a href="/service/student-visa">Student Visas </a></li>
-                <li><a href="/service/tourism-visa">Tourism Visas </a></li> --}}
+                <li><a href="/service/tourism-visa">Tourism Visas </a></li>
                 <li><a href="/service">View All <span>-></span></a> </li>
 
               </ul><!-- list-unstyled -->
