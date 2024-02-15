@@ -17,10 +17,10 @@
               mind.</p>
           </div><!-- footer-widget-text -->
           <div class="footer-widget-socials">
-            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://web.facebook.com"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
-            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-tiktok"></i></a>
           </div><!-- footer-widget-socials -->
         </div><!--col-lg-4-->
@@ -32,7 +32,7 @@
                 <li><a href="/blog">News</a></li>
                 {{-- <li><a href="/contact">Careers</a></li> --}}
                 <li><a href="/contact">Partner With us</a></li>
-                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/privacy/policy">Privacy Policy</a></li>
 
               </ul><!-- list-unstyled -->
             </div><!-- footer-widget-explore -->
@@ -43,9 +43,14 @@
             <div class="footer-widget-department">
               <h4 class="footer-widget-title">Services</h4>
               <ul class="list-unstyled">
-                <li><a href="/service/work-visa">Work Visas </a></li>
+                @foreach ($all_service->chunk(3)->take(2)->last() as $key => $data)
+                  <li>
+                    <a href="{{ route('frontend.services.single', $data->slug) }}">{{ $data->title }}</a>
+                  </li>
+                @endforeach
+                {{-- <li><a href="/service/work-visa">Work Visas </a></li>
                 <li><a href="/service/student-visa">Student Visas </a></li>
-                <li><a href="/service/tourism-visa">Tourism Visas </a></li>
+                <li><a href="/service/tourism-visa">Tourism Visas </a></li> --}}
                 <li><a href="/service">View All <span>-></span></a> </li>
 
               </ul><!-- list-unstyled -->

@@ -224,7 +224,7 @@
             @endforeach
           </ul><!-- list-unstyled -->
           <div class="service-button">
-            <a href="/services" class="btn btn-primary">View All</a>
+            <a href="/service" class="btn btn-primary">View All</a>
           </div><!-- service-button -->
         </div><!--service-card-->
       </div><!--col-lg-5-->

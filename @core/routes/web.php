@@ -516,6 +516,8 @@ Route::group(['middleware' => ['setlang:frontend', 'globalVariable', 'HtmlMinifi
   Route::post('/place-order', 'FrontendFormController@send_order_message')->name('frontend.order.message');
 });
 
+Route::get('/privacy/policy', 'FrontendController@show_privacy_policy')->name('frontend.privacy.policy');
+
 
 require_once __DIR__ . '/admin.php';
 

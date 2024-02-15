@@ -1769,8 +1769,8 @@ ITEM;
         $temp_file = asset('assets/uploads/downloadable/' . $product_details->downloadable_file);
         $file_extensions = pathinfo($temp_file, PATHINFO_EXTENSION);
         $file = new Filesystem();
-        $file->copy($temp_file, 'assets/uploads/downloadable/' . \Str::slug($product_details->title) . '.' . $file_extensions);
-        return response()->download('assets/uploads/downloadable/' . \Str::slug($product_details->title) . '.' . $file_extensions)->deleteFileAfterSend(true);
+        $file->copy($temp_file, 'assets/uploads/downloadable/' . Str::slug($product_details->title) . '.' . $file_extensions);
+        return response()->download('assets/uploads/downloadable/' . Str::slug($product_details->title) . '.' . $file_extensions)->deleteFileAfterSend(true);
       }
     }
 
@@ -1849,6 +1849,11 @@ ITEM;
     }
 
     return $return_val;
+  }
+
+  public function show_privacy_policy() {
+
+    return view('frontend.pages.privacy-policy');
   }
 
 
