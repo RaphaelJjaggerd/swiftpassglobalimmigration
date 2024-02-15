@@ -290,16 +290,16 @@
                   <a href="{{ route('user.login') }}">{{ __('Already Have account?') }}</a>
                 </div>
               </div>
-              {{-- <div class="col-lg-12">
-                                <div class="social-login-wrap">
-                                    @if (get_static_option('enable_facebook_login'))
-                                        <a href="{{route('login.facebook.redirect')}}" class="facebook"><i class="fab fa-facebook-f"></i> {{__('Login With Facebook')}}</a>
-                                    @endif
-                                    @if (get_static_option('enable_google_login'))
-                                        <a href="{{route('login.google.redirect')}}" class="google"><i class="fab fa-google"></i> {{__('Login With Google')}}</a>
-                                    @endif
-                                </div>
-                            </div> --}}
+              <div class="col-lg-12">
+                <div class="social-login-wrap">
+                  @if (get_static_option('enable_facebook_login'))
+                    <a href="{{ route('login.facebook.redirect') }}" class="facebook"><i class="fab fa-facebook-f"></i> {{ __('Login With Facebook') }}</a>
+                  @endif
+                  @if (get_static_option('enable_google_login'))
+                    <a href="{{ route('login.google.redirect') }}" class="google"><i class="fab fa-google"></i> {{ __('Login With Google') }}</a>
+                  @endif
+                </div>
+              </div>
             </form>
           </div>
         </div>
