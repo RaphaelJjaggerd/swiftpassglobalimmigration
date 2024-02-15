@@ -118,9 +118,9 @@ class AppointmentController extends Controller {
       $this->deletePastBookingDates($appointment);
 
       foreach ($dates as $date) {
-        // if (Carbon::parse($date)->lt($now)) {
-        //   continue; // Skip past dates
-        // }
+        if (Carbon::parse($date)->lt($now)) {
+          continue; // Skip past dates
+        }
         $appointment->bookingDates()->create(['date' => $date]);
       }
 

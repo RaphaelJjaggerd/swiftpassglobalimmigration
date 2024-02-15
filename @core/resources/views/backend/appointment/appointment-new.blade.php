@@ -239,7 +239,7 @@
     $(document).ready(function() {
       $('#appointment_dates').datepicker({
         multidate: true, // Enable selecting multiple dates
-        format: 'yyyy-dd-mm', // Date format
+        format: 'yyyy-mm-dd', // Date format
         autoclose: true // Close the datepicker when a date is selected
       });
     });
