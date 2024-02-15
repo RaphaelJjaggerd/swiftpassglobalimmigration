@@ -1855,8 +1855,8 @@
                 </li>
                 <li class="{{ active_menu('admin-home/general-settings/database-upgrade') }}"><a href="{{ route('admin.general.database.upgrade') }}">{{ __('Database Upgrade') }}</a>
                 </li>
-                <li class="{{ active_menu('admin-home/general-settings/license-setting') }}"><a href="{{ route('admin.general.license.settings') }}">{{ __('Licence Settings') }}</a>
-                </li>
+                {{-- <li class="{{ active_menu('admin-home/general-settings/license-setting') }}"><a href="{{ route('admin.general.license.settings') }}">{{ __('Licence Settings') }}</a>
+                </li> --}}
                 <li class="{{ active_menu('admin-home/general-settings/software-update-setting') }}">
                   <a href="{{ route('admin.general.software.update.settings') }}">{{ __('Check Update') }}</a>
                 </li>
