@@ -118,10 +118,11 @@ class AppointmentController extends Controller {
       $this->deletePastBookingDates($appointment);
 
       foreach ($dates as $date) {
-        if (Carbon::parse($date)->lt($now)) {
+        $formattedDate = Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
+        if (Carbon::parse($formattedDate)->lt($now)) {
           continue; // Skip past dates
         }
-        $appointment->bookingDates()->create(['date' => $date]);
+        $appointment->bookingDates()->create(['date' => $formattedDate]);
       }
 
       DB::commit();
@@ -231,7 +232,6 @@ class AppointmentController extends Controller {
 
       $dates = explode(',', $request->appointment_dates);
 
-      // Create or update booking dates for future dates
       foreach ($dates as $date) {
         if (Carbon::parse($date)->isPast()) {
           continue; // Skip past dates
