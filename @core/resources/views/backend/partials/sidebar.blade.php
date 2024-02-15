@@ -1699,11 +1699,11 @@
                     {{ __('Navbar Settings') }}
                   </a>
                 </li>
-                <li class="main_dropdown {{ active_menu('admin-home/appearance-setting/home-variant') }}">
+                {{-- <li class="main_dropdown {{ active_menu('admin-home/appearance-setting/home-variant') }}">
                   <a href="{{ route('admin.home.variant') }}" aria-expanded="true">
                     {{ __('Home Variant') }}
                   </a>
-                </li>
+                </li> --}}
                 <li class="{{ active_menu('admin-home/appearance-setting/breadcrumb-settings') }}">
                   <a href="{{ route('admin.breadcrumb.settings') }}" aria-expanded="true">
                     {{ __('Breadcrumb Settings') }}
@@ -1763,27 +1763,27 @@
                     <li class="{{ active_menu('admin-home/form-builder/all') }}">
                       <a href="{{ route('admin.form.builder.all') }}">{{ __('All Custom Form') }}</a>
                     </li>
-                    <li class="{{ active_menu('admin-home/form-builder/get-in-touch') }}"><a href="{{ route('admin.form.builder.get.in.touch') }}">{{ __('Get In Touch Form') }}</a>
+                    {{-- <li class="{{ active_menu('admin-home/form-builder/get-in-touch') }}"><a href="{{ route('admin.form.builder.get.in.touch') }}">{{ __('Get In Touch Form') }}</a>
                     </li>
                     <li class="{{ active_menu('admin-home/form-builder/service-query') }}"><a href="{{ route('admin.form.builder.service.query') }}">{{ __('Service Query Form') }}</a>
                     </li>
                     <li class="{{ active_menu('admin-home/form-builder/case-study-query') }}"><a href="{{ route('admin.form.builder.case.study.query') }}">{{ __('Case Study Query Form') }}</a>
                     </li>
                     <li class="{{ active_menu('admin-home/form-builder/quote-form') }}"><a href="{{ route('admin.form.builder.quote') }}">{{ __('Quote Form') }}</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ active_menu('admin-home/form-builder/order-form') }}"><a href="{{ route('admin.form.builder.order') }}">{{ __('Order Form') }}</a>
                     </li>
                     <li class="{{ active_menu('admin-home/form-builder/contact-form') }}"><a href="{{ route('admin.form.builder.contact') }}">{{ __('Contact Form') }}</a>
                     </li>
-                    <li class="{{ active_menu('admin-home/form-builder/apply-job-form') }}"><a href="{{ route('admin.form.builder.apply.job.form') }}">{{ __('Apply Job Form') }}</a>
+                    {{-- <li class="{{ active_menu('admin-home/form-builder/apply-job-form') }}"><a href="{{ route('admin.form.builder.apply.job.form') }}">{{ __('Apply Job Form') }}</a>
                     </li>
                     <li class="{{ active_menu('admin-home/form-builder/event-attendance') }}"><a href="{{ route('admin.form.builder.event.attendance.form') }}">{{ __('Event Attendance Form') }}</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ active_menu('admin-home/form-builder/appoinment-booking') }}">
                       <a href="{{ route('admin.form.builder.appointment.form') }}">{{ __('Call Action Query Form') }}</a>
                     </li>
-                    <li class="{{ active_menu('admin-home/form-builder/estimate') }}"><a href="{{ route('admin.form.builder.estimate.form') }}">{{ __('Estimate Form') }}</a>
-                    </li>
+                    {{-- <li class="{{ active_menu('admin-home/form-builder/estimate') }}"><a href="{{ route('admin.form.builder.estimate.form') }}">{{ __('Estimate Form') }}</a>
+                    </li> --}}
                   </ul>
                 </li>
               @endif
