@@ -58,15 +58,27 @@ class PaymentGatewayCredential {
 
 
 
-  public static function get_paystack_credential(): object {
-    $paystack = XgPaymentGateway::paystack();
-    $paystack->setPublicKey(getenv('PAYSTACK_PUBLIC_KEY'));
-    $paystack->setSecretKey(getenv('PAYSTACK_SECRET_KEY'));
-    $paystack->setMerchantEmail(getenv('MERCHANT_EMAIL'));
-    $paystack->setCurrency(self::get_global_currency());
-    $paystack->setEnv(getenv('PAYSTACK_TEST_MODE'));
-    $paystack->setExchangeRate(self::exchange_rate_usd_to_ngn());
+  // public static function get_paystack_credential(): object {
+  //   $paystack = XgPaymentGateway::paystack();
+  //   $paystack->setPublicKey(getenv('PAYSTACK_PUBLIC_KEY'));
+  //   $paystack->setSecretKey(getenv('PAYSTACK_SECRET_KEY'));
+  //   $paystack->setMerchantEmail(getenv('MERCHANT_EMAIL'));
+  //   $paystack->setCurrency(self::get_global_currency());
+  //   $paystack->setEnv(getenv('PAYSTACK_TEST_MODE'));
+  //   $paystack->setExchangeRate(self::exchange_rate_usd_to_ngn());
 
-    return $paystack;
+  //   return $paystack;
+  // }
+
+  public static function get_paystack_credential(): object {
+    $paystackPay = new PaystackPay();
+    $paystackPay->setPublicKey(getenv('PAYSTACK_PUBLIC_KEY'));
+    $paystackPay->setSecretKey(getenv('PAYSTACK_SECRET_KEY'));
+    $paystackPay->setMerchantEmail(getenv('MERCHANT_EMAIL'));
+    $paystackPay->setCurrency(self::get_global_currency());
+    $paystackPay->setEnv(getenv('PAYSTACK_TEST_MODE'));
+    $paystackPay->setExchangeRate(self::exchange_rate_usd_to_ngn());
+
+    return $paystackPay;
   }
 }
