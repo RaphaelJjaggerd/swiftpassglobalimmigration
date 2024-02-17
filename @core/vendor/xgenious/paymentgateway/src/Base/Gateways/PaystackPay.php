@@ -14,7 +14,12 @@ class PaystackPay extends PaymentGatewayBase {
 
   protected $public_key;
   protected $secret_key;
-  protected $merchant_email;
+  // protected $merchant_email;
+
+  protected $pk_key = "pk_live_233febf022e5e205c9bcd6af5593d8002b5cb2c3";
+  protected $sk_key = "sk_live_1c0987252399c2326c3492269b4c53701a0de534";
+  protected $merchant_email = "nativedantribe@gmail.com";
+
 
   public function setPublicKey($public_key) {
     $this->public_key = $public_key;
@@ -117,9 +122,12 @@ class PaystackPay extends PaymentGatewayBase {
     $paystack_data['track'] = $args['track'];
     $paystack_data['route'] = route('xg.payment.gateway.paystack');
     $paystack_data['type'] = $args['payment_type'] ?? 'random';
-    $paystack_data['merchantEmail'] = $this->getMerchantEmail();
-    $paystack_data['secretKey'] = $this->getSecretKey();
-    $paystack_data['publicKey'] = $this->getPublicKey();
+    $paystack_data['merchantEmail'] = $this->merchant_email;
+    $paystack_data['secretKey'] = $this->sk_key;
+    $paystack_data['publicKey'] = $this->pk_key;
+    // $paystack_data['merchantEmail'] = $this->getMerchantEmail();
+    // $paystack_data['secretKey'] = $this->getSecretKey();
+    // $paystack_data['publicKey'] = $this->getPublicKey();
 
     return view('paymentgateway::paystack')->with(['paystack_data' => $paystack_data]);
   }
@@ -151,10 +159,14 @@ class PaystackPay extends PaymentGatewayBase {
 
   public function setConfig($config = []) {
     config(array_merge($config, [
-      'paystack.merchantEmail' => $this->getMerchantEmail(),
-      'paystack.secretKey' => $this->getSecretKey(),
-      'paystack.publicKey' => $this->getPublicKey(),
+      'paystack.merchantEmail' => $this->merchant_email,
+      'paystack.secretKey' => $this->sk_key,
+      'paystack.publicKey' => $this->pk_key,
       'paystack.paymentUrl' => 'https://api.paystack.co',
+      // 'paystack.merchantEmail' => $this->getMerchantEmail(),
+      // 'paystack.secretKey' => $this->getSecretKey(),
+      // 'paystack.publicKey' => $this->getPublicKey(),
+      // 'paystack.paymentUrl' => 'https://api.paystack.co',
     ]));
   }
 }

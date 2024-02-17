@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Facade;
 use Xgenious\Paymentgateway\Base\Gateways\InstamojoPay;
 use Xgenious\Paymentgateway\Base\PaymentGatewayHelpers;
 use Xgenious\Paymentgateway\Base\Gateways\SquarePay;
+use Xgenious\Paymentgateway\Base\Gateways\PaystackPay;
+
 /**
  * @see GlobalCurrency
  * @method static script_currency_list()
@@ -71,10 +73,8 @@ use Xgenious\Paymentgateway\Base\Gateways\SquarePay;
  * @method static saltpay()
  *
  */
-class XgPaymentGateway extends Facade
-{
-    protected static function getFacadeAccessor(): string
-    {
-        return 'XgPaymentGateway';
-    }
+class XgPaymentGateway extends Facade {
+  protected static function getFacadeAccessor(): string {
+    return 'XgPaymentGateway';
+  }
 }
