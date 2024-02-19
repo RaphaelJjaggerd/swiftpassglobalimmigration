@@ -1373,12 +1373,7 @@
 
                   </a>
                 </li>
-                <li class="main_dropdown <?php echo e(active_menu('admin-home/appearance-setting/home-variant')); ?>">
-                  <a href="<?php echo e(route('admin.home.variant')); ?>" aria-expanded="true">
-                    <?php echo e(__('Home Variant')); ?>
-
-                  </a>
-                </li>
+                
                 <li class="<?php echo e(active_menu('admin-home/appearance-setting/breadcrumb-settings')); ?>">
                   <a href="<?php echo e(route('admin.breadcrumb.settings')); ?>" aria-expanded="true">
                     <?php echo e(__('Breadcrumb Settings')); ?>
@@ -1444,27 +1439,16 @@
                     <li class="<?php echo e(active_menu('admin-home/form-builder/all')); ?>">
                       <a href="<?php echo e(route('admin.form.builder.all')); ?>"><?php echo e(__('All Custom Form')); ?></a>
                     </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/get-in-touch')); ?>"><a href="<?php echo e(route('admin.form.builder.get.in.touch')); ?>"><?php echo e(__('Get In Touch Form')); ?></a>
-                    </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/service-query')); ?>"><a href="<?php echo e(route('admin.form.builder.service.query')); ?>"><?php echo e(__('Service Query Form')); ?></a>
-                    </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/case-study-query')); ?>"><a href="<?php echo e(route('admin.form.builder.case.study.query')); ?>"><?php echo e(__('Case Study Query Form')); ?></a>
-                    </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/quote-form')); ?>"><a href="<?php echo e(route('admin.form.builder.quote')); ?>"><?php echo e(__('Quote Form')); ?></a>
-                    </li>
+                    
                     <li class="<?php echo e(active_menu('admin-home/form-builder/order-form')); ?>"><a href="<?php echo e(route('admin.form.builder.order')); ?>"><?php echo e(__('Order Form')); ?></a>
                     </li>
                     <li class="<?php echo e(active_menu('admin-home/form-builder/contact-form')); ?>"><a href="<?php echo e(route('admin.form.builder.contact')); ?>"><?php echo e(__('Contact Form')); ?></a>
                     </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/apply-job-form')); ?>"><a href="<?php echo e(route('admin.form.builder.apply.job.form')); ?>"><?php echo e(__('Apply Job Form')); ?></a>
-                    </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/event-attendance')); ?>"><a href="<?php echo e(route('admin.form.builder.event.attendance.form')); ?>"><?php echo e(__('Event Attendance Form')); ?></a>
-                    </li>
+                    
                     <li class="<?php echo e(active_menu('admin-home/form-builder/appoinment-booking')); ?>">
                       <a href="<?php echo e(route('admin.form.builder.appointment.form')); ?>"><?php echo e(__('Call Action Query Form')); ?></a>
                     </li>
-                    <li class="<?php echo e(active_menu('admin-home/form-builder/estimate')); ?>"><a href="<?php echo e(route('admin.form.builder.estimate.form')); ?>"><?php echo e(__('Estimate Form')); ?></a>
-                    </li>
+                    
                   </ul>
                 </li>
               <?php endif; ?>
@@ -1538,11 +1522,8 @@
                 </li>
                 <li class="<?php echo e(active_menu('admin-home/general-settings/database-upgrade')); ?>"><a href="<?php echo e(route('admin.general.database.upgrade')); ?>"><?php echo e(__('Database Upgrade')); ?></a>
                 </li>
-                <li class="<?php echo e(active_menu('admin-home/general-settings/license-setting')); ?>"><a href="<?php echo e(route('admin.general.license.settings')); ?>"><?php echo e(__('Licence Settings')); ?></a>
-                </li>
-                <li class="<?php echo e(active_menu('admin-home/general-settings/software-update-setting')); ?>">
-                  <a href="<?php echo e(route('admin.general.software.update.settings')); ?>"><?php echo e(__('Check Update')); ?></a>
-                </li>
+                
+                
               </ul>
             </li>
           <?php endif; ?>

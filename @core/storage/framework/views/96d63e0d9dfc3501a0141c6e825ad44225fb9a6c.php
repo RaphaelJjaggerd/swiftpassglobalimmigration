@@ -3,26 +3,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
+          
           <div class="footer-widget-logo">
-            
-            <?php if(!empty(filter_static_option_value('site_white_logo', $global_static_field_data))): ?>
-              <?php echo render_image_markup_by_attachment_id(filter_static_option_value('site_white_logo', $global_static_field_data)); ?>
 
-            <?php else: ?>
-              <?php echo render_image_markup_by_attachment_id(filter_static_option_value('site_logo', $global_static_field_data)); ?>
-
-            <?php endif; ?>
-          </div><!-- footer-widget-logo -->
+          </div>
           <div class="footer-widget-text">
             <p>Your trusted partner for seamless visa solutions , with 24/7 support ensuring visa success
               and peace of
               mind.</p>
           </div><!-- footer-widget-text -->
           <div class="footer-widget-socials">
-            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://web.facebook.com"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
-            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@jccurry100k"><i class="fa-brands fa-tiktok"></i></a>
           </div><!-- footer-widget-socials -->
         </div><!--col-lg-4-->
@@ -34,7 +28,7 @@
                 <li><a href="/blog">News</a></li>
                 
                 <li><a href="/contact">Partner With us</a></li>
-                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/privacy/policy">Privacy Policy</a></li>
 
               </ul><!-- list-unstyled -->
             </div><!-- footer-widget-explore -->
@@ -45,6 +39,7 @@
             <div class="footer-widget-department">
               <h4 class="footer-widget-title">Services</h4>
               <ul class="list-unstyled">
+                
                 <li><a href="/service/work-visa">Work Visas </a></li>
                 <li><a href="/service/student-visa">Student Visas </a></li>
                 <li><a href="/service/tourism-visa">Tourism Visas </a></li>
@@ -132,6 +127,9 @@
 <?php echo $__env->make('frontend.partials.popup-structure', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <a href="#" class="scroll-to-top scroll-to-target" data-target="html"><i class="fa-solid fa-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
 <!-- plugins js -->
 <script src="<?php echo e(asset('assets-custom/vendor/jquery/jquery.min.js')); ?>"></script>

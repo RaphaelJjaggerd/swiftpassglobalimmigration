@@ -29,7 +29,12 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets-custom/vendor/swiper/swiper-bundle.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets-custom/vendor/youtube-popup/youtube-popup.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets-custom/css/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets-custom/css/evo-calendar.css')); ?>">
     <script src="<?php echo e(asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js')); ?>"></script>
+
+
+    
+
 
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/image/favicon/apple-touch-icon.png">
