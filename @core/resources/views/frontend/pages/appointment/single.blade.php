@@ -1,102 +1,17 @@
 @extends('frontend.frontend-page-master')
+
 <style>
-  table {
+  .hero {
     width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
+    height: auto;
+    background: linear-gradient(45deg, #83B8D7, #BAA6FD);
+    display: grid;
   }
 
-  th,
-  td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-    position: relative;
-  }
+  #calendar {
 
-
-  th,
-  td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-    position: relative;
-    /* Added to position the dot */
-  }
-
-  th {
-    background-color: #f2f2f2;
-  }
-
-  td {
-    color: #666;
-    cursor: default;
-  }
-
-  td.available {
-    cursor: pointer;
-    background-color: #d4edda;
-  }
-
-  td.available:hover {
-    background-color: #c3e6cb;
-  }
-
-  td.inactive {
-    cursor: not-allowed;
-    color: #aaa;
-  }
-
-  td.selected {
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  .current-day-dot {
-    height: 30px;
-    width: 30px;
-    background-color: transparent;
-    border: 2px solid #007bff;
-    /* Changed to border instead of background */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    /* Added to vertically center the dot */
-    left: 50%;
-    /* Added to horizontally center the dot */
-    transform: translate(-50%, -50%);
-    /* Added to center the dot */
-  }
-
-  .current-day-dot span {
-    font-size: 12px;
-    /* Adjust the font size of the date */
-  }
-
-  .month-selector {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .calendar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .selected {
-    background-color: blue;
-    color: white;
-  }
-
-  #backToCurrentBtn {
-    cursor: pointer;
-    color: #007bff;
+    width: 90%;
+    margin: 40px auto;
   }
 </style>
 @php
@@ -185,212 +100,175 @@
                 <div class="tab-pane fade show active" id="nav-booking" role="tabpanel">
                   @if ($item->appointment_status === 'yes')
                     <div class="booking-wrap">
-
                       {{-- calendar goes here --}}
-                      <div class="left-part">
-                        <div class="calendar-container">
-                          <div class="month-selector">
-                            <button id="prevMonthBtn" class="btn btn-small btn-primary"><i class="fa-solid fa-arrow-left"></i></button>
-                            <span id="currentMonth"></span>
-                            <button id="nextMonthBtn" class="btn btn-small btn-primary"><i class="fa-solid fa-arrow-right"></i></button>
-                            <span id="backToCurrentBtn" class="back-to-current"></span>
-                          </div>
+                      <div id="calendar"></div>
 
-                          <table id="calendar">
-                            <thead>
-                              <tr>
-                                <th>Sun</th>
-                                <th>Mon</th>
-                                <th>Tue</th>
-                                <th>Wed</th>
-                                <th>Thu</th>
-                                <th>Fri</th>
-                                <th>Sat</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <!-- Calendar days will be dynamically generated here -->
-                            </tbody>
-                          </table>
-                          <div id="availableTimes" class="available-times"></div>
-                          <div class="date-time-block">
+                    </div>
+                    {{-- calendar goes here --}}
 
-                            <p class="alert alert-warning " id="time_slot_warning">
-                              {{ __('select date first') }}</p>
-                            <ul class="time-slot time" id="time_slot_wrapper">
-                              {{-- @foreach ($item->booking_time_ids as $time)
-                                                        <li data-id="{{$time['id']}}">{{$time['time']}}</li>
-                                                    @endforeach  --}}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="right-part">
+                      <div class="form-wrapper">
 
-                      {{-- calendar goes here --}}
-
-                      <div class="right-part">
-                        <div class="form-wrapper">
-
-                          <div class="billing-details-wrapper">
-                            <div class="order-tab-wrap">
-                              <nav>
-                                <div class="nav nav-tabs" role="tablist">
-                                  @if (!auth()->guard('web')->check())
-                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-selected="true"><i class="fas fa-user"></i></a>
-                                  @endif
-                                  <a class="nav-item nav-link  @if (auth()->check()) active @else disabled @endif" disabled id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fas fa-address-book"></i></a>
-                                </div>
-                              </nav>
-                              <div class="tab-content">
+                        <div class="billing-details-wrapper">
+                          <div class="order-tab-wrap">
+                            <nav>
+                              <div class="nav nav-tabs" role="tablist">
                                 @if (!auth()->guard('web')->check())
-                                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
-                                    @if (get_static_option('disable_guest_mode_for_appointment_module'))
-                                      <div class="checkout-type margin-bottom-30  @if (auth()->guard('web')->check()) d-none @endif ">
-                                        <div class="custom-control custom-switch">
-                                          <input type="checkbox" class="custom-control-input" id="guest_logout" name="checkout_type">
-                                          <label class="custom-control-label" for="guest_logout">{{ __('Guest Order') }}</label>
-                                        </div>
-                                      </div>
-                                    @endif
-                                    @if (!auth()->guard('web')->check())
-                                      @include('frontend.partials.ajax-login-form')
-                                    @else
-                                      <div class="alert alert-success">
-                                        {{ __('Your Are Logged In As') }}
-                                        {{ auth()->guard('web')->user()->name }}
-                                      </div>
-                                    @endif
-                                    @if (!auth()->guard('web')->check())
-                                      <div class="next-step">
-                                        <button class="next-step-btn btn-boxed" style="display: none" type="button">{{ __('Next Step') }}</button>
-                                      </div>
-                                    @endif
-                                  </div>
+                                  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-selected="true"><i class="fas fa-user"></i></a>
                                 @endif
-                                <div class="tab-pane fade @if (auth()->guard('web')->check()) show active @endif" id="nav-profile" role="tabpanel">
-
-                                  <h3 class="title">
-                                    {{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_information_text') }}
-                                  </h3>
-                                  <form action="{{ route('frontend.appointment.booking') }}" method="post" class="appointment-booking-form" id="appointment-booking-form" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="error-message"></div>
-                                    <input type="hidden" name="booking_date">
-                                    <input type="hidden" name="booking_time_id">
-                                    <input type="hidden" name="appointment_id" value="{{ $item->id }}">
-
-                                    <div class="form-group">
-                                      <label for="location">Select Appointment Type:</label>
-                                      <select name="appointment_type" id="appointment_type">
-                                        <option value="virtual">Virtual</option>
-                                        <option value="on_premise">On Premise</option>
-                                      </select>
+                                <a class="nav-item nav-link  @if (auth()->check()) active @else disabled @endif" disabled id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fas fa-address-book"></i></a>
+                              </div>
+                            </nav>
+                            <div class="tab-content">
+                              @if (!auth()->guard('web')->check())
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
+                                  @if (get_static_option('disable_guest_mode_for_appointment_module'))
+                                    <div class="checkout-type margin-bottom-30  @if (auth()->guard('web')->check()) d-none @endif ">
+                                      <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="guest_logout" name="checkout_type">
+                                        <label class="custom-control-label" for="guest_logout">{{ __('Guest Order') }}</label>
+                                      </div>
                                     </div>
-
-                                    <div class="form-group">
-                                      <input type="text" name="coupon" class="form-control" placeholder="{{ __('Coupon') }}">
+                                  @endif
+                                  @if (!auth()->guard('web')->check())
+                                    @include('frontend.partials.ajax-login-form')
+                                  @else
+                                    <div class="alert alert-success">
+                                      {{ __('Your Are Logged In As') }}
+                                      {{ auth()->guard('web')->user()->name }}
                                     </div>
-                                    {{-- @if (session('type') && session('msg'))
+                                  @endif
+                                  @if (!auth()->guard('web')->check())
+                                    <div class="next-step">
+                                      <button class="next-step-btn btn-boxed" style="display: none" type="button">{{ __('Next Step') }}</button>
+                                    </div>
+                                  @endif
+                                </div>
+                              @endif
+                              <div class="tab-pane fade @if (auth()->guard('web')->check()) show active @endif" id="nav-profile" role="tabpanel">
+
+                                <h3 class="title">
+                                  {{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_information_text') }}
+                                </h3>
+                                <form action="{{ route('frontend.appointment.booking') }}" method="post" class="appointment-booking-form" id="appointment-booking-form" enctype="multipart/form-data">
+                                  @csrf
+                                  <div class="error-message"></div>
+                                  <input type="hidden" name="booking_date">
+                                  <input type="hidden" name="booking_time_id">
+                                  <input type="hidden" name="appointment_id" value="{{ $item->id }}">
+
+                                  <div class="form-group">
+                                    <label for="location">Select Appointment Type:</label>
+                                    <select name="appointment_type" id="appointment_type">
+                                      <option value="virtual">Virtual</option>
+                                      <option value="on_premise">On Premise</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <input type="text" name="coupon" class="form-control" placeholder="{{ __('Coupon') }}">
+                                  </div>
+                                  {{-- @if (session('type') && session('msg'))
                                       <div class="alert alert-{{ session('type') }}">
                                         {{ session('msg') }}
                                       </div>
                                     @endif --}}
 
-                                    <div class="form-group">
-                                      <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ auth()->guard('web')->check() ? auth()->guard('web')->user()->name : '' }}">
-                                    </div>
-                                    <div class="form-group">
-                                      <input type="email" name="email" class="form-control" placeholder="{{ __('Email') }}" value="{{ auth()->guard('web')->check() ? auth()->guard('web')->user()->email : '' }}">
-                                    </div>
-                                    {!! render_form_field_for_frontend(get_static_option('appointment_booking_page_form_fields')) !!}
+                                  <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ auth()->guard('web')->check() ? auth()->guard('web')->user()->name : '' }}">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="{{ __('Email') }}" value="{{ auth()->guard('web')->check() ? auth()->guard('web')->user()->email : '' }}">
+                                  </div>
+                                  {!! render_form_field_for_frontend(get_static_option('appointment_booking_page_form_fields')) !!}
 
 
-                                    @if (!empty($item->price))
-                                      {!! render_payment_gateway_for_form(false) !!}
-                                      @if (!empty(get_static_option('manual_payment_gateway')))
-                                        <div class="form-group manual_payment_transaction_field" @if (get_static_option('site_default_payment_gateway') === 'manual_payment') style="display: block;" @endif>
-                                          <div class="label mb-2">
-                                            {{ __('Attach your bank Document') }}
-                                          </div>
-                                          <input class="form-control btn btn-primary btn-sm pb-2 pt-2" type="file" name="manual_payment_attachment">
-                                          <span class="help-info mt-2">{!! get_manual_payment_description() !!}</span>
+                                  @if (!empty($item->price))
+                                    {!! render_payment_gateway_for_form(false) !!}
+                                    @if (!empty(get_static_option('manual_payment_gateway')))
+                                      <div class="form-group manual_payment_transaction_field" @if (get_static_option('site_default_payment_gateway') === 'manual_payment') style="display: block;" @endif>
+                                        <div class="label mb-2">
+                                          {{ __('Attach your bank Document') }}
                                         </div>
-                                      @endif
+                                        <input class="form-control btn btn-primary btn-sm pb-2 pt-2" type="file" name="manual_payment_attachment">
+                                        <span class="help-info mt-2">{!! get_manual_payment_description() !!}</span>
+                                      </div>
                                     @endif
-                                    <div class="button-wrap">
-                                      <button type="submit" class="btn-boxed appointment appo_booking_btn">{{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_button_text') }}
-                                        <i class="fas fa-spinner fa-spin d-none"></i></button>
-                                    </div>
-                                  </form>
+                                  @endif
+                                  <div class="button-wrap">
+                                    <button type="submit" class="btn-boxed appointment appo_booking_btn">{{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_button_text') }}
+                                      <i class="fas fa-spinner fa-spin d-none"></i></button>
+                                  </div>
+                                </form>
 
-                                </div>
                               </div>
                             </div>
                           </div>
-
-
                         </div>
+
+
                       </div>
                     </div>
+                </div>
+              @else
+                <div class="alert alert-warning"> {{ __('Not Available') }}</div>
+                @endif
+              </div>
+              <div class="tab-pane fade" id="nav-feedback" role="tabpanel">
+                <div class="feedback-wrapper">
+                  @if (auth()->guard('web')->check())
+                    <div class="feedback-form-wrapper">
+                      <h3 class="title">{{ __('Leave your feedback') }}</h3>
+                      <form action="{{ route('frontend.appointment.review') }}" method="post" class="appointment-booking-form" id="appointment_rating_form">
+                        @csrf
+                        <div class="error-message"></div>
+                        <input type="hidden" name="appointment_id" value="{{ $item->id }}">
+                        <div class="form-group">
+                          <label for="rating-empty-clearable2">{{ __('Ratings') }}</label>
+                          <input type="number" name="ratings" id="rating-empty-clearable2" class="rating text-warning" />
+                        </div>
+                        <div class="form-group">
+                          <label for="">{{ __('Message') }}</label>
+                          <textarea name="message" cols="30" class="form-control" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn-boxed appointment" id="appointment_ratings">{{ __('Submit') }} <i class="fas fa-spinner fa-spin d-none"></i></button>
+                      </form>
+                    </div>
                   @else
-                    <div class="alert alert-warning"> {{ __('Not Available') }}</div>
+                    @include('frontend.partials.ajax-login-form')
+                  @endif
+                  @if (count($item->reviews) > 0)
+                    <div class="feedback-comment-list-wrap margin-top-40">
+                      <h3 class="title">
+                        {{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_client_feedback_title') }}
+                      </h3>
+                      <ul class="feedback-list">
+                        @foreach ($item->reviews as $data)
+                          <li class="single-feedback-item">
+                            <div class="content">
+                              <h4 class="title">
+                                {{ $data->user ? optional($data->user)->username : __('Anonymous') }}
+                              </h4>
+                              <div class="rating-wrap single">
+                                @for ($i = 1; $i <= $data->ratings; $i++)
+                                  <i class="fas fa-star"></i>
+                                @endfor
+                              </div>
+                              <div class="description">{{ $data->message }}</div>
+                            </div>
+                          </li>
+                        @endforeach
+                      </ul>
+                    </div>
                   @endif
                 </div>
-                <div class="tab-pane fade" id="nav-feedback" role="tabpanel">
-                  <div class="feedback-wrapper">
-                    @if (auth()->guard('web')->check())
-                      <div class="feedback-form-wrapper">
-                        <h3 class="title">{{ __('Leave your feedback') }}</h3>
-                        <form action="{{ route('frontend.appointment.review') }}" method="post" class="appointment-booking-form" id="appointment_rating_form">
-                          @csrf
-                          <div class="error-message"></div>
-                          <input type="hidden" name="appointment_id" value="{{ $item->id }}">
-                          <div class="form-group">
-                            <label for="rating-empty-clearable2">{{ __('Ratings') }}</label>
-                            <input type="number" name="ratings" id="rating-empty-clearable2" class="rating text-warning" />
-                          </div>
-                          <div class="form-group">
-                            <label for="">{{ __('Message') }}</label>
-                            <textarea name="message" cols="30" class="form-control" rows="5"></textarea>
-                          </div>
-                          <button type="submit" class="btn-boxed appointment" id="appointment_ratings">{{ __('Submit') }} <i class="fas fa-spinner fa-spin d-none"></i></button>
-                        </form>
-                      </div>
-                    @else
-                      @include('frontend.partials.ajax-login-form')
-                    @endif
-                    @if (count($item->reviews) > 0)
-                      <div class="feedback-comment-list-wrap margin-top-40">
-                        <h3 class="title">
-                          {{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_client_feedback_title') }}
-                        </h3>
-                        <ul class="feedback-list">
-                          @foreach ($item->reviews as $data)
-                            <li class="single-feedback-item">
-                              <div class="content">
-                                <h4 class="title">
-                                  {{ $data->user ? optional($data->user)->username : __('Anonymous') }}
-                                </h4>
-                                <div class="rating-wrap single">
-                                  @for ($i = 1; $i <= $data->ratings; $i++)
-                                    <i class="fas fa-star"></i>
-                                  @endfor
-                                </div>
-                                <div class="description">{{ $data->message }}</div>
-                              </div>
-                            </li>
-                          @endforeach
-                        </ul>
-                      </div>
-                    @endif
-                  </div>
 
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
     </div>
   </section>
@@ -399,16 +277,68 @@
 @section('scripts')
   <script type="text/javascript" src="//use.fontawesome.com/5ac93d4ca8.js"></script>
   <script type="text/javascript" src="{{ asset('assets/frontend/js/bootstrap4-rating-input.js') }}"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  {{-- <script src='https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/js/evo-calendar.min.js'></script> --}}
+  <script type="text/javascript" src="{{ asset('assets-custom/js/evo-calendar.js') }}"></script>
 
   @include('frontend.partials.ajax-login-form-js')
+
   <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: "{{ route('frontend.appointment.booking.time.check') }}",
+        type: 'post',
+        data: {
+          _token: '{{ csrf_token() }}',
+          date: $(this).data('date'),
+          appointment_id: '{{ $item->id }}'
+        },
+        success: function(data) {
+          var calendarEvents = []; // Initialize calendarEvents array
+          $.each(data.available_booking_dates, function(index, date) {
+            console.log("Dates:" + date);
+            $.each(data.available_booking_time, function(index, value) {
+              calendarEvents.push({
+                id: value.id,
+                name: value.time, // Adjust these according to your data structure
+                date: date, // Adjust these according to your data structure
+                type: "holiday", // Adjust these according to your data structure
+                color: '#63d867'
+              });
+
+            });
+          });
+
+          // Initialize evoCalendar with the updated calendarEvents array
+          $('#calendar').evoCalendar({
+            'todayHighlight': true,
+            'sidebarDisplayDefault': false,
+            'format': 'yyyy-mm-dd',
+            calendarEvents: calendarEvents
+          });
+
+          $('#calendar').on('selectEvent', function(event, activeEvent) {
+            $('input[name="booking_date"]').val(activeEvent.date);
+            $('input[name="booking_time_id"]').val(activeEvent.id);
+
+          });
+
+          $('#calendar').on('selectDate', function(event, newDate, oldDate) {
+            $('input[name="booking_date"]').val(newDate);
+          });
+        }
+      });
+    });
+  </script>
+
+
+  {{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
       var calendarBody = document.querySelector('#calendar tbody');
       var availableTimesDiv = document.getElementById('availableTimes');
       var currentMonthDisplay = document.getElementById('currentMonth');
       var backToCurrentBtn = document.getElementById('backToCurrentBtn');
-      var bookingDates = []; // Array to store booking dates
+      let bookingDates = []; // Array to store booking dates
       var currentMonth;
       var today = new Date();
       var prevMonthBtn = document.getElementById('prevMonthBtn');
@@ -420,6 +350,7 @@
       function fetchBookingDates(appointmentId) {
         // Make a fetch request to your backend to fetch booking dates
         // Replace the URL with your actual endpoint
+
         fetch('/appointment-booking-date-check?appointment_id=' + appointmentId)
           .then(response => response.json())
           .then(data => {
@@ -430,6 +361,7 @@
           .catch(error => {
             console.error('Error fetching booking dates:', error);
           });
+
       }
 
       // Function to fetch booking dates and update the calendar
@@ -460,14 +392,15 @@
                     selectedCell.classList.remove('selected');
                   }
                   // Add border to the clicked cell
-                  this.classList.add('selected');
+                  this.classList.add('btn');
                   selectedCell = this;
                   // Update booking_date input field with selected date
                   bookingDateInput.value = this.dataset.date;
                   // Display loading message
-                  availableTimesDiv.textContent = 'Loading Available Times...';
+                  availableTimesDiv.textContent = 'Loading Available Timesss...';
                   // Fetch available times for the selected date
                   fetchAvailableTimes(this.dataset.date);
+                  availableTimesDiv.textContent = '';
                 });
               } else {
                 cell.classList.add('inactive');
@@ -535,7 +468,6 @@
 
       // Function to fetch available times from the backend
       function fetchAvailableTimes(selectedDate) {
-        console.log(selectedDate);
         // Make a fetch request to your backend to fetch available times
         // Replace the URL with your actual endpoint
         fetch('/appointment-booking-check', {
@@ -552,23 +484,19 @@
           .then(response => response.json())
           .then(data => {
             // Process the response and display available times
-            if (data.available_booking_time.length > 0) {
-              availableTimesDiv.textContent = ''; // Clear previous content
-              $('#time_slot_wrapper').html('');
-              data.available_booking_time.forEach(time => {
-                if (time != false) {
-                  $('#time_slot_wrapper').append('<li data-id="' + time.id +
-                    '">' + time.time + '</li>');
-                  $('#time_slot_warning').hide();
-                } else {
-                  $('#time_slot_warning').text(
-                    'no booking time available this date');
-                  $('#time_slot_warning').show();
-                }
-              });
-            } else {
-              availableTimesDiv.textContent = 'No available times for this date';
-            }
+            $('#time_slot_wrapper').html('');
+            $.each(data.available_booking_time, function(index, value) {
+              if (value != false) {
+                $('#time_slot_wrapper').append('<li data-id="' + value.id +
+                  '">' + value.time + '</li>');
+                $('#time_slot_warning').hide();
+              } else {
+                $('#time_slot_warning').text(
+                  'no booking time available this date');
+                $('#time_slot_warning').show();
+              }
+            });
+
           })
           .catch(error => {
             console.error('Error fetching available times:', error);
@@ -598,7 +526,7 @@
       currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
       updateCalendar();
     });
-  </script>
+  </script> --}}
 
 
 

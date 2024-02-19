@@ -150,6 +150,15 @@ class AppointmentController extends Controller {
 
       $all_booking_time = AppointmentBookingTime::whereIn('id', $available_booking_time_ids)->get();
 
+      // Get the current date and time
+      $now = Carbon::now();
+
+      // Delete past booking dates associated with the appointment
+      $appointment_details->bookingDates()->where('date', '<', $now)->delete();
+
+      $all_booking_dates = AppointmentBookingDate::where('appointment_id', $request->appointment_id)
+        ->pluck('date');
+
       if ($all_booking->count() >= 1) {
         // has some booking in this date
         // check for maximum appointment 
@@ -159,10 +168,14 @@ class AppointmentController extends Controller {
         });
       }
 
+      $spots = $all_booking->count();
+
       return response()->json([
         'existing_booking_item' => $all_booking,
         'available_booking_time' => $all_booking_time,
-        'requested_booking_date' => $request->date
+        'available_booking_dates' => $all_booking_dates,
+        'requested_booking_date' => $request->date,
+        'spots' => $spots,
       ]);
     } catch (\Exception $e) {
       // Log the error

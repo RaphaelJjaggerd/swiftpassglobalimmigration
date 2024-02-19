@@ -28,7 +28,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/vendor/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-custom/vendor/youtube-popup/youtube-popup.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/css/evo-calendar.css') }}">
     <script src="{{ asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
+
+
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" /> --}}
+
 
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/image/favicon/apple-touch-icon.png">

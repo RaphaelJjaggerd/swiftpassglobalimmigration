@@ -136,6 +136,9 @@
 
 <a href="#" class="scroll-to-top scroll-to-target" data-target="html"><i class="fa-solid fa-arrow-up"></i></a>
 {{-- CUSTOM SCRIPTS START --}}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+
 <!-- plugins js -->
 <script src="{{ asset('assets-custom/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
