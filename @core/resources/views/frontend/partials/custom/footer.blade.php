@@ -3,14 +3,17 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
-          <div class="footer-widget-logo">
-            {{-- <a href="index.html"><img src="assets/image/swiftpasslogo.png" class="img-fluid" alt="img-25"></a> --}}
+          {{-- <div class="footer-widget-logo">
+            <a href="index.html"><img src="assets/image/swiftpasslogo.png" class="img-fluid" alt="img-25"></a>
             @if (!empty(filter_static_option_value('site_white_logo', $global_static_field_data)))
               {!! render_image_markup_by_attachment_id(filter_static_option_value('site_white_logo', $global_static_field_data)) !!}
             @else
               {!! render_image_markup_by_attachment_id(filter_static_option_value('site_logo', $global_static_field_data)) !!}
             @endif
-          </div><!-- footer-widget-logo -->
+          </div><!-- footer-widget-logo --> --}}
+          <div class="footer-widget-logo">
+
+          </div>
           <div class="footer-widget-text">
             <p>Your trusted partner for seamless visa solutions , with 24/7 support ensuring visa success
               and peace of
