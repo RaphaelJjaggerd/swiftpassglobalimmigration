@@ -3569,13 +3569,20 @@ a.search-toggler{
 		padding-bottom: 40px;		
 	}	
 }
-.footer-widget-logo{
+/* .footer-widget-logo{
 	padding: 45px 60px;
 	max-width: 250px;
 	align-items: center;
 	color: var(--thm-white);
 	display: inline-block;
-	/* background-color: var(--thm-dark-black); */
+
+} */
+.footer-widget-logo-space{
+	padding: 45px 60px;
+	max-width: 250px;
+	align-items: center;
+
+
 }
 .footer-widget-text {
 	margin-top: 32px;

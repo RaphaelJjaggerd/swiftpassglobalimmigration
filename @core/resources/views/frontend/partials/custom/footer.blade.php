@@ -11,7 +11,7 @@
               {!! render_image_markup_by_attachment_id(filter_static_option_value('site_logo', $global_static_field_data)) !!}
             @endif
           </div><!-- footer-widget-logo --> --}}
-          <div class="footer-widget-logo">
+          <div class="footer-widget-logo-space">
 
           </div>
           <div class="footer-widget-text">
