@@ -3581,6 +3581,7 @@ a.search-toggler{
 	padding: 45px 60px;
 	max-width: 250px;
 	align-items: center;
+  display: inline-block;
 
 
 }
