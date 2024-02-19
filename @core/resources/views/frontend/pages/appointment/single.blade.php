@@ -4,7 +4,7 @@
   .hero {
     width: 100%;
     height: auto;
-    background: linear-gradient(45deg, #83B8D7, #BAA6FD);
+    background: linear-gradient(35deg, #83B8D7, #BAA6FD);
     display: grid;
   }
 
@@ -12,6 +12,13 @@
 
     width: 90%;
     margin: 40px auto;
+  }
+
+
+
+  .selected-event {
+    background: linear-gradient(45deg, #0ecf758a, #2C65D9);
+    /* Your desired background color */
   }
 </style>
 @php
@@ -196,7 +203,7 @@
                                     @endif
                                   @endif
                                   <div class="button-wrap">
-                                    <button type="submit" class="btn-boxed appointment appo_booking_btn">{{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_button_text') }}
+                                    <button type="submit" class="btn-boxed btn-color appointment appo_booking_btn">{{ get_static_option('appointment_single_' . $user_select_lang_slug . '_appointment_booking_button_text') }}
                                       <i class="fas fa-spinner fa-spin d-none"></i></button>
                                   </div>
                                 </form>
@@ -318,8 +325,8 @@
           });
 
           $('#calendar').on('selectEvent', function(event, activeEvent) {
-            $('input[name="booking_date"]').val(activeEvent.date);
             $('input[name="booking_time_id"]').val(activeEvent.id);
+
 
           });
 

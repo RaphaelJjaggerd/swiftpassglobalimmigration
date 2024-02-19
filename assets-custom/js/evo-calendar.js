@@ -1286,6 +1286,13 @@
       })
       .indexOf(id);
     var modified_event = _.options.calendarEvents[index];
+
+    // Remove background color from previously selected event
+    _.$elements.eventEl.find('.event-container').removeClass('selected-event');
+
+    // Add background color to the selected event
+    $(el).addClass('selected-event');
+
     if (modified_event.date instanceof Array) {
       modified_event.dates_range = _.getBetweenDates(modified_event.date);
     }
