@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-site-verification" content="9sNetICaYX48wj_k9yyTCkM8iW7XltaZkyl_z2LBjJQ" />
 
     {{-- CUSTOM CSS AND LINKS START --}}
     <!-- google font -->
