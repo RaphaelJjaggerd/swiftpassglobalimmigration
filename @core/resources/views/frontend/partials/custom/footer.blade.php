@@ -98,7 +98,11 @@
       <span></span>
     </a><!-- mobile-nav-close -->
     <div class="logo-box">
-      <a href="index.html"><img src="assets/image/logo-light.png" width="160" height="40" alt="26"></a>
+      @if (!empty(filter_static_option_value('site_white_logo', $global_static_field_data)))
+        {!! render_image_markup_by_attachment_id(filter_static_option_value('site_white_logo', $global_static_field_data)) !!}
+      @else
+        {!! render_image_markup_by_attachment_id(filter_static_option_value('site_logo', $global_static_field_data)) !!}
+      @endif
     </div><!-- logo-box -->
     <div class="mobile-nav-container"></div><!-- mobile-nav-container -->
     <ul class="mobile-nav-contact list-unstyled">
