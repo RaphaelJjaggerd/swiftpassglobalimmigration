@@ -156,21 +156,18 @@
             </li>
           @endif
 
-          {{-- @if (check_page_permission_by_string('Pages Manage'))
-                        <li
-                        class="main_dropdown
+          @if (check_page_permission_by_string('Pages Manage'))
+            <li class="main_dropdown
                         @if (request()->is(['admin-home/page/*', 'admin-home/page'])) active @endif
                         ">
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
-                                <span>{{__('Pages')}}</span></a>
-                            <ul class="collapse">
-                                <li class="{{active_menu('admin-home/page')}}"><a
-                                            href="{{route('admin.page')}}">{{__('All Pages')}}</a></li>
-                                <li class="{{active_menu('admin-home/page/new')}}"><a
-                                            href="{{route('admin.page.new')}}">{{__('Add New Page')}}</a></li>
-                            </ul>
-                        </li>
-                    @endif --}}
+              <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                <span>{{ __('Pages') }}</span></a>
+              <ul class="collapse">
+                <li class="{{ active_menu('admin-home/page') }}"><a href="{{ route('admin.page') }}">{{ __('All Pages') }}</a></li>
+                <li class="{{ active_menu('admin-home/page/new') }}"><a href="{{ route('admin.page.new') }}">{{ __('Add New Page') }}</a></li>
+              </ul>
+            </li>
+          @endif
 
           @if (check_page_permission_by_string('Blogs Manage'))
             <li class="main_dropdown
