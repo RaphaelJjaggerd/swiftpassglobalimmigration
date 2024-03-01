@@ -174,7 +174,7 @@
             </p>
           </div><!-- section-title-box -->
 
-          <div class="about-author-box">
+          {{-- <div class="about-author-box">
             <div class="about-author-image">
 
               {!! render_image_markup_by_attachment_id(filter_static_option_value('home_page_02_about_us_signature_image', $static_field_data)) !!}
@@ -183,7 +183,7 @@
               <h5>Mr. Duncan Wandera</h5>
               <span>Founder & C.E.O</span>
             </div><!-- about-author-box-meta -->
-          </div><!--about-author-box-->
+          </div><!--about-author-box--> --}}
         </div><!-- about-inner -->
       </div><!--col-lg-6-->
     </div><!-- row -->
