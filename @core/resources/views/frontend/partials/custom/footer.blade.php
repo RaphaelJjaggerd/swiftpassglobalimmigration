@@ -35,7 +35,7 @@
                 <li><a href="/blog">News</a></li>
                 {{-- <li><a href="/contact">Careers</a></li> --}}
                 <li><a href="/contact">Partner With us</a></li>
-                <li><a href="/privacy/policy">Privacy Policy</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
 
               </ul><!-- list-unstyled -->
             </div><!-- footer-widget-explore -->
