@@ -64,7 +64,7 @@
           <div class="footer-widget">
             <div class="footer-widget-contact">
               <h4 class="footer-widget-title">Contact</h4>
-              <p>Krishna Center, 2nd Floor, Woodvale Groove, Westlands<br>Nairobi. Kenya</p>
+              <p>7th Floor, IPS Building, Kimathi Street,<br>Nairobi. Kenya</p>
             </div><!-- footer-widget-contact -->
             <div class="footer-widget-contact-list">
               <i class="fa-solid fa-envelope"></i>
@@ -75,7 +75,13 @@
             <div class="footer-widget-contact-list">
               <i class="fa-solid fa-phone"></i>
               <div class="footer-widget-contact-item">
-                <a href="tel:+254-740-081-562">+254 740 081 562</a>
+                <a href="tel:+254-740-081-562">+254 712 553 768</a>
+              </div><!-- footer-widget-contact-item -->
+            </div><!-- footer-widget-contact-list -->
+            <div class="footer-widget-contact-list">
+              <i class="fa-solid fa-phone"></i>
+              <div class="footer-widget-contact-item">
+                <a href="tel:+254-740-081-562">+254 794 551 814</a>
               </div><!-- footer-widget-contact-item -->
             </div><!-- footer-widget-contact-list -->
           </div><!--footer-widget-->
@@ -108,7 +114,11 @@
     <ul class="mobile-nav-contact list-unstyled">
       <li>
         <i class="fa-solid fa-phone"></i>
-        <a href="tel:+254740081562">+254 740 081 562</a>
+        <a href="tel:+254740081562">+254 712 553 768</a>
+      </li><!-- li -->
+      <li>
+        <i class="fa-solid fa-phone"></i>
+        <a href="tel:+254740081562">+254 794 551 814</a>
       </li><!-- li -->
       <li>
         <i class="fa-solid fa-envelope"></i>
@@ -116,7 +126,7 @@
       </li><!-- li -->
       <li>
         <i class="fa-solid fa-map-marker-alt"></i>
-        Krishna Center, 2nd Floor, Woodvale Groove, Westlands <br> Nairobi. Kenya
+        7th Floor, IPS Building, Kimathi Street, <br> Nairobi. Kenya
       </li><!-- li -->
     </ul><!-- mobile-nav-contact -->
     <ul class="mobile-nav-social list-unstyled">
