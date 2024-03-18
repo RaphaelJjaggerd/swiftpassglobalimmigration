@@ -27,10 +27,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/vendor/flaticon/css/flaticon_towngov.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/vendor/owl-carousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/vendor/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-custom/vendor/youtube-popup/youtube-popup.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets-custom/vendor/youtube-popup/youtube-popup.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets-custom/css/evo-calendar.css') }}">
-    <script src="{{ asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script defer src="{{ asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
 
 
     {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" /> --}}
@@ -45,9 +45,9 @@
 
     {!! render_favicon_by_id(filter_static_option_value('site_favicon', $global_static_field_data)) !!}
     {!! load_google_fonts() !!}
-    <link rel=preload href="{{ asset('assets/frontend/css/fontawesome.min.css') }}" as="style">
-    <link rel=preload href="{{ asset('assets/frontend/css/flaticon.css') }}" as="style">
-    <link rel=preload href="{{ asset('assets/frontend/css/nexicon.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/frontend/css/fontawesome.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/frontend/css/flaticon.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/frontend/css/nexicon.css') }}" as="style">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery.ihavecookies.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/nexicon.css') }}">
@@ -103,9 +103,9 @@
     {{-- <script src="{{ asset('assets/frontend/js/jquery.min.js') }}"></script>
       <script src="{{ asset('assets/frontend/js/jquery-migrate.min.js') }}"></script> --}}
 
-    <script>
+    {{-- <script>
       var siteurl = "{{ url('/') }}"
-    </script>
+    </script> --}}
 
     {!! filter_static_option_value('site_third_party_tracking_code', $global_static_field_data) !!}
 
@@ -116,5 +116,5 @@
 
     {!! filter_static_option_value('site_third_party_tracking_body_code', $global_static_field_data) !!}
 
-    @include('frontend.partials.custom.preloader')
-    @include('frontend.partials.search-popup')
+    {{-- @include('frontend.partials.custom.preloader') --}}
+    {{-- @include('frontend.partials.search-popup') --}}

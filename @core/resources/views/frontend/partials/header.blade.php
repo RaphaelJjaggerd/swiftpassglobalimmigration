@@ -1,4 +1,4 @@
-@php
+{{-- @php
   $home_page_variant = $home_page ?? filter_static_option_value('home_page_variant', $global_static_field_data);
 @endphp
 <!DOCTYPE html>
@@ -46,7 +46,7 @@
             crossorigin="anonymous"></script>
     @endif --}}
 
-  {{-- @if (file_exists('assets/frontend/css/home-' . $home_page_variant . '.css') && empty(get_static_option('home_page_page_builder_status')))
+{{-- @if (file_exists('assets/frontend/css/home-' . $home_page_variant . '.css') && empty(get_static_option('home_page_page_builder_status')))
         <link rel="stylesheet" href="{{asset('assets/frontend/css/home-'.$home_page_variant.'.css')}}">
     @endif
     @include('frontend.partials.css-variable')
@@ -76,4 +76,4 @@
 
 @if (!empty(get_static_option('navbar_variant')) && !in_array(get_static_option('navbar_variant'), ['03', '05']))
 @include('frontend.partials.supportbar',['home_page_variant' => $home_page_variant])
-@endif --}}
+@endif --}} --}}

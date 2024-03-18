@@ -50,7 +50,7 @@
   @include('frontend.partials.popup-structure')
 @endif
 <!-- load all script -->
-<script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/dynamic-script.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/jquery.magnific-popup.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/imagesloaded.pkgd.min.js') }}"></script>
@@ -63,11 +63,11 @@
 <script src="{{ asset('assets/frontend/js/jquery.mb.YTPlayer.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/slick.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/main.js') }}"></script>
-@if (\Route::currentRouteName() === 'frontend.products')
+<script src="{{ asset('assets/frontend/js/main.js') }}"></script> --}}
+{{-- @if (\Route::currentRouteName() === 'frontend.products')
   <script src="{{ asset('assets/frontend/js/jquery-ui.js') }}"></script>
-@endif
-<script src="{{ asset('assets/frontend/js/toastr.min.js') }}"></script>
+@endif --}}
+{{-- <script src="{{ asset('assets/frontend/js/toastr.min.js') }}"></script> --}}
 
 <x-frontend.others.advertisement-script />
 @if (request()->routeIs('homepage') || request()->routeIs('frontend.homepage.demo'))

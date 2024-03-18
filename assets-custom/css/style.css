@@ -63,9 +63,11 @@
 	--thm-light-bg-rgb: 243, 246, 247;
 	--thm-font: "Manrope",sans-serif;
 	--thm-special-font: "reeyregular", sans-serif;
+  --body-font: "Nunito", sans-serif;
 	scroll-behavior: auto;
   
 }
+
 .red {
   color: red;
 }
@@ -122,6 +124,7 @@ body.locked {
 	overflow: hidden;
 }
 h1,h2,h3,h4,h5,h6 {
+  font-family: var(--thm-font);
 	font-weight: 800;
 	color: var(--thm-black);
 	letter-spacing: -0.4px;
@@ -1039,6 +1042,7 @@ a.search-toggler{
 	}
 }
 .slider-tagline{
+  font-family: var(--thm-font);
 	font-size: 20px;
 	color: #fff;
 	transform: translateY(-50px);

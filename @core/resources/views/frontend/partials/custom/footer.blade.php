@@ -157,36 +157,37 @@
 <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
 <!-- plugins js -->
-<script src="{{ asset('assets-custom/vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/swiper/swiper-bundle.min.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/counter-up/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/youtube-popup/youtube-popup.jquery.js') }}"></script>
-<script src="{{ asset('assets-custom/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('assets-custom/js/theme.js') }}"></script>
+{{-- <script src="{{ asset('assets-custom/vendor/jquery/jquery.min.js') }}"></script> --}}
+{{-- <script defer src="{{ asset('assets-custom/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script> --}}
+<script defer src="{{ asset('assets-custom/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script defer src="{{ asset('assets-custom/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
+<script defer src="{{ asset('assets-custom/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+<script defer src="{{ asset('assets-custom/vendor/counter-up/jquery.counterup.min.js') }}"></script>
+<script defer src="{{ asset('assets-custom/vendor/youtube-popup/youtube-popup.jquery.js') }}"></script>
+<script defer src="{{ asset('assets-custom/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+<script defer src="{{ asset('assets-custom/js/theme.js') }}"></script>
 {{-- CUSTOM SCRIPTS END --}}
 
 <!-- load all script -->
 {{-- <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script> --}}
-<script src="{{ asset('assets/frontend/js/dynamic-script.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/jquery.magnific-popup.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/isotope.pkgd.min.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/dynamic-script.js') }}" defer></script>
+<script defer src="{{ asset('assets/frontend/js/jquery.magnific-popup.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/imagesloaded.pkgd.min.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/isotope.pkgd.min.js') }}"></script>
 {{-- <script src="{{ asset('assets/frontend/js/jquery.waypoints.js') }}"></script> --}}
 {{-- <script src="{{ asset('assets/frontend/js/jquery.counterup.min.js') }}"></script> --}}
 {{-- <script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script> --}}
-<script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/jQuery.rProgressbar.min.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/jQuery.rProgressbar.min.js') }}"></script>
 {{-- <script src="{{ asset('assets/frontend/js/jquery.mb.YTPlayer.js') }}"></script> --}}
-<script src="{{ asset('assets/frontend/js/jquery.nicescroll.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/slick.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/jquery.nicescroll.min.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/slick.js') }}"></script>
+<script defer src="{{ asset('assets/frontend/js/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
 
-@if (\Route::currentRouteName() === 'frontend.products')
+{{-- @if (\Route::currentRouteName() === 'frontend.products')
   <script src="{{ asset('assets/frontend/js/jquery-ui.js') }}"></script>
-@endif
+@endif --}}
 
 @if (request()->routeIs('homepage') || request()->routeIs('frontend.homepage.demo'))
   @include('frontend.partials.popup-jspart')
